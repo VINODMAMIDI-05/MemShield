@@ -1,0 +1,26 @@
+from enum import Enum
+
+class SensitivityLevel(str, Enum):
+    PUBLIC = "PUBLIC"
+    INTERNAL = "INTERNAL"
+    CONFIDENTIAL = "CONFIDENTIAL"
+    HIGHLY_CONFIDENTIAL = "HIGHLY_CONFIDENTIAL"
+
+class DataType(str, Enum):
+    EMAIL = "EMAIL"
+    PHONE = "PHONE"
+    AADHAAR = "AADHAAR"
+    PAN = "PAN"
+    CREDIT_CARD = "CREDIT_CARD"
+    BANK_ACCOUNT = "BANK_ACCOUNT"
+    PASSWORD = "PASSWORD"
+    API_KEY = "API_KEY"
+    AUTH_TOKEN = "AUTH_TOKEN"
+    PRIVATE_KEY = "PRIVATE_KEY"
+    ADDRESS = "ADDRESS"
+    PERSONAL_IDENTIFIER = "PERSONAL_IDENTIFIER"
+
+class PolicyAction(str, Enum):
+    ALLOW = "ALLOW"
+    MASK = "MASK"
+    BLOCK = "BLOCK"

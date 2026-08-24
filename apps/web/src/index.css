@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-canvas, #070914);
+    color: var(--text-main, #F8FAFC);
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* =========================================================================
+   THEME DEFINITIONS & ATTRIBUTE SELECTORS
+   ========================================================================= */
+
+/* 1. Midnight Cyber (Default) */
+[data-theme="cyber"] {
+  --bg-canvas: #070914;
+  --bg-sidebar: #060814;
+  --bg-header: #070A18;
+  --bg-card: #0B0F22;
+  --bg-inner: #070A18;
+  --border-main: rgba(51, 65, 85, 0.8);
+  --border-card: #1E293B;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --accent-glow: rgba(14, 165, 233, 0.15);
+}
+
+/* 2. Deep Space Indigo */
+[data-theme="indigo"] {
+  --bg-canvas: #08081B;
+  --bg-sidebar: #050514;
+  --bg-header: #080820;
+  --bg-card: #0E0E2C;
+  --bg-inner: #060618;
+  --border-main: rgba(99, 102, 241, 0.25);
+  --border-card: #2E2856;
+  --text-main: #EEF2FF;
+  --text-muted: #A5B4FC;
+  --accent-glow: rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="indigo"] .bg-\[\#070914\] { background-color: #08081B !important; }
+[data-theme="indigo"] .bg-\[\#070A18\], [data-theme="indigo"] .bg-\[\#060814\] { background-color: #060618 !important; }
+[data-theme="indigo"] .bg-\[\#0B0F22\], [data-theme="indigo"] .bg-\[\#0F1322\] { background-color: #0E0E2C !important; }
+[data-theme="indigo"] .border-slate-800 { border-color: rgba(99, 102, 241, 0.25) !important; }
+
+/* 3. Matrix Zero-Trust (Emerald) */
+[data-theme="emerald"] {
+  --bg-canvas: #040D0A;
+  --bg-sidebar: #020806;
+  --bg-header: #05120E;
+  --bg-card: #081C15;
+  --bg-inner: #030A08;
+  --border-main: rgba(16, 185, 129, 0.25);
+  --border-card: #133E30;
+  --text-main: #ECFDF5;
+  --text-muted: #6EE7B7;
+  --accent-glow: rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="emerald"] .bg-\[\#070914\] { background-color: #040D0A !important; }
+[data-theme="emerald"] .bg-\[\#070A18\], [data-theme="emerald"] .bg-\[\#060814\] { background-color: #030A08 !important; }
+[data-theme="emerald"] .bg-\[\#0B0F22\], [data-theme="emerald"] .bg-\[\#0F1322\] { background-color: #081C15 !important; }
+[data-theme="emerald"] .border-slate-800 { border-color: rgba(16, 185, 129, 0.25) !important; }
+
+/* 4. Enterprise Clean Light */
+[data-theme="light"] {
+  --bg-canvas: #F1F5F9;
+  --bg-sidebar: #FFFFFF;
+  --bg-header: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-inner: #F8FAFC;
+  --border-main: #E2E8F0;
+  --border-card: #CBD5E1;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --accent-glow: rgba(14, 165, 233, 0.08);
+}
+
+[data-theme="light"] body {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .bg-\[\#070914\] { background-color: #F1F5F9 !important; color: #0F172A !important; }
+[data-theme="light"] .bg-\[\#070A18\], [data-theme="light"] .bg-\[\#060814\], [data-theme="light"] .bg-\[\#080C1B\] { background-color: #FFFFFF !important; }
+[data-theme="light"] .bg-\[\#0B0F22\], [data-theme="light"] .bg-\[\#0F1322\], [data-theme="light"] .bg-\[\#0F1426\] { background-color: #FFFFFF !important; box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important; }
+[data-theme="light"] .bg-\[\#0B1021\] { background-color: #F8FAFC !important; }
+[data-theme="light"] .border-slate-800, [data-theme="light"] .border-slate-850 { border-color: #E2E8F0 !important; }
+[data-theme="light"] .text-white { color: #0F172A !important; }
+[data-theme="light"] .text-slate-350, [data-theme="light"] .text-slate-300, [data-theme="light"] .text-slate-400 { color: #475569 !important; }
+[data-theme="light"] .text-slate-500 { color: #64748B !important; }
+[data-theme="light"] aside { background-color: #FFFFFF !important; border-color: #E2E8F0 !important; }
+[data-theme="light"] header { background-color: #FFFFFF !important; border-color: #E2E8F0 !important; }
+[data-theme="light"] textarea { background-color: #F8FAFC !important; color: #0F172A !important; border-color: #CBD5E1 !important; }
+
+/* Custom glowing and subtle animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom cyber scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D3960;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B4B7C;
+}
