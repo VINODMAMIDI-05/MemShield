@@ -14,7 +14,8 @@ import {
   MOCK_AUDIT_LOGS 
 } from '../data/mockData';
 
-const API_BASE = "http://localhost:8000/api/v1";
+const rawApiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_BASE = rawApiUrl.endsWith("/api/v1") ? rawApiUrl : `${rawApiUrl.replace(/\/$/, "")}/api/v1`;
 
 let localPolicies = [...INITIAL_POLICIES];
 let localSessions = [...MOCK_SESSIONS];

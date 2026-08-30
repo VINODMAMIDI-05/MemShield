@@ -16,6 +16,15 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///./memshield.db"
     MONGODB_URI: Optional[str] = None
 
+    # CORS & Production
+    FRONTEND_URL: Optional[str] = None
+    CORS_ORIGINS: list[str] = [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000"
+    ]
+
     # AI Gateway
     AI_PROVIDER: str = "openai"
     AI_API_KEY: Optional[str] = None
